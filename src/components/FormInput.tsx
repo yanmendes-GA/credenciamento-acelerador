@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 interface FormInputProps {
   label: string;
@@ -6,16 +6,18 @@ interface FormInputProps {
   value: string;
   onChange: (value: string) => void;
   type?: string;
+  maxLength?: number;
   id: string;
 }
 
-export const FormInput: React.FC<FormInputProps> = ({ 
-  label, 
-  placeholder, 
-  value, 
-  onChange, 
+export const FormInput: React.FC<FormInputProps> = ({
+  label,
+  placeholder,
+  value,
+  onChange,
   type = "text",
-  id 
+  maxLength,
+  id,
 }) => {
   return (
     <div className="flex flex-col items-start gap-2 self-stretch relative">
@@ -31,6 +33,7 @@ export const FormInput: React.FC<FormInputProps> = ({
           value={value}
           onChange={(e) => onChange(e.target.value)}
           placeholder={placeholder}
+          maxLength={maxLength}
           className="w-full bg-transparent border-none outline-none font-normal text-sm text-white leading-6 tracking-[0.014px] placeholder:text-[#A0A3A6] placeholder:italic max-sm:text-xs"
         />
       </div>
