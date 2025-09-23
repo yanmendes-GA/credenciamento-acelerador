@@ -1,16 +1,16 @@
-import React from 'react';
-import { IdentityValidationForm } from '@/components/IdentityValidationForm';
-import { Footer } from '@/components/Footer';
+import React from "react";
+import { IdentityValidationForm } from "@/components/IdentityValidationForm";
+import { Footer } from "@/components/Footer";
 
 const Index = () => {
   return (
-    <main className="w-full h-screen relative overflow-hidden bg-black">
+    <main className="w-full h-screen relative bg-black">
       <img
         src="https://api.builder.io/api/v1/image/assets/TEMP/de1865c83b6433d38fafbd4d8de2d02009fffd74?width=3840"
         alt="Background"
-        className="w-full h-full object-cover absolute z-[1] left-0 top-0"
+        className="w-full object-cover absolute z-[1] left-0 top-0"
       />
-      
+
       <div className="flex w-[820px] flex-col items-start gap-20 absolute h-[822px] z-[2] left-[250px] top-[93px] max-md:w-[90%] max-md:gap-[60px] max-md:left-[5%] max-md:top-[60px] max-sm:gap-10 max-sm:top-10">
         <header>
           <img
@@ -19,7 +19,7 @@ const Index = () => {
             className="w-[460px] h-12 aspect-[115/12] relative max-md:w-[350px] max-md:h-9 max-sm:w-[280px] max-sm:h-[29px]"
           />
         </header>
-        
+
         <section className="flex flex-col items-start gap-5 self-stretch relative">
           <div className="self-stretch relative">
             <h1 className="font-bold text-[64px] text-white leading-[56px] tracking-[0.064px] max-md:text-5xl max-md:leading-[44px] max-sm:text-4xl max-sm:leading-8">
@@ -33,20 +33,10 @@ const Index = () => {
             </p>
           </div>
         </section>
-        
+
         <IdentityValidationForm />
-        
-        {/* Admin Access Button */}
-        <div className="fixed bottom-6 right-6 z-10">
-          <button
-            onClick={() => window.location.href = '/login'}
-            className="px-4 py-2 bg-[#3F464C]/80 hover:bg-[#3F464C] backdrop-blur-sm border border-[#6F7479] text-white text-sm rounded-lg transition-colors"
-          >
-            Área Administrativa
-          </button>
-        </div>
       </div>
-      
+
       <Footer />
     </main>
   );

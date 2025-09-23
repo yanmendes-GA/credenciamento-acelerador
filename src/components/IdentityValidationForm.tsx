@@ -19,6 +19,7 @@ export const IdentityValidationForm: React.FC = () => {
   const handleCpfChange = (value: string) => {
     if (documentType === "estrangeiro") {
       setCpf(value);
+      setIsValidCPFValue(true);
       return;
     }
 

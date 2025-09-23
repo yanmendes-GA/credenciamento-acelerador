@@ -20,7 +20,7 @@ export const ToggleSwitch: React.FC<ToggleSwitchProps> = ({
         role="tab"
         aria-selected={selectedOption === "brasileiro"}
         onClick={() => onToggle("brasileiro")}
-        className={`flex justify-center items-center gap-2.5 flex-[1_0_0] relative px-1.5 py-[3px] rounded-tl-[12px] rounded-br-[12px] transition-colors ${
+        className={`flex justify-center items-center gap-2.5 flex-[1_0_0] hover:bg-[#3F464C] relative px-1.5 py-[3px] rounded-tl-[12px] rounded-br-[12px] transition-colors ${
           selectedOption === "brasileiro" ? "bg-[#3F464C]" : ""
         }`}
       >
@@ -35,7 +35,7 @@ export const ToggleSwitch: React.FC<ToggleSwitchProps> = ({
         role="tab"
         aria-selected={selectedOption === "estrangeiro"}
         onClick={() => onToggle("estrangeiro")}
-        className={`flex justify-center items-center gap-2.5 flex-[1_0_0] relative px-1.5 py-[3px] rounded-tl-[12px] rounded-br-[12px] transition-colors ${
+        className={`flex justify-center items-center gap-2.5 flex-[1_0_0] hover:bg-[#3F464C] relative px-1.5 py-[3px] rounded-tl-[12px] rounded-br-[12px] transition-colors ${
           selectedOption === "estrangeiro" ? "bg-[#3F464C]" : ""
         }`}
       >
