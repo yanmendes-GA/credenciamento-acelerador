@@ -35,6 +35,16 @@ const Index = () => {
         </section>
         
         <IdentityValidationForm />
+        
+        {/* Admin Access Button */}
+        <div className="fixed bottom-6 right-6 z-10">
+          <button
+            onClick={() => window.location.href = '/login'}
+            className="px-4 py-2 bg-[#3F464C]/80 hover:bg-[#3F464C] backdrop-blur-sm border border-[#6F7479] text-white text-sm rounded-lg transition-colors"
+          >
+            Área Administrativa
+          </button>
+        </div>
       </div>
       
       <Footer />
