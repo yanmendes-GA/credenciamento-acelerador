@@ -1,13 +1,44 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import React from 'react';
+import { IdentityValidationForm } from '@/components/IdentityValidationForm';
+import { Footer } from '@/components/Footer';
 
 const Index = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
+    <main className="w-full h-screen relative overflow-hidden bg-black">
+      <img
+        src="https://api.builder.io/api/v1/image/assets/TEMP/de1865c83b6433d38fafbd4d8de2d02009fffd74?width=3840"
+        alt="Background"
+        className="w-full h-full object-cover absolute z-[1] left-0 top-0"
+      />
+      
+      <div className="flex w-[820px] flex-col items-start gap-20 absolute h-[822px] z-[2] left-[250px] top-[93px] max-md:w-[90%] max-md:gap-[60px] max-md:left-[5%] max-md:top-[60px] max-sm:gap-10 max-sm:top-10">
+        <header>
+          <img
+            src="https://api.builder.io/api/v1/image/assets/TEMP/68a45f46c5202a981b756b66ce940a5163e3c19d?width=920"
+            alt="Acelerador Empresarial Logo"
+            className="w-[460px] h-12 aspect-[115/12] relative max-md:w-[350px] max-md:h-9 max-sm:w-[280px] max-sm:h-[29px]"
+          />
+        </header>
+        
+        <section className="flex flex-col items-start gap-5 self-stretch relative">
+          <div className="self-stretch relative">
+            <h1 className="font-bold text-[64px] text-white leading-[56px] tracking-[0.064px] max-md:text-5xl max-md:leading-[44px] max-sm:text-4xl max-sm:leading-8">
+              O primeiro passo para o seu legado
+            </h1>
+          </div>
+          <div className="w-[586px] relative max-md:w-full">
+            <p className="font-normal text-xl text-white leading-6 tracking-[0.02px] max-md:text-lg max-md:leading-[22px] max-sm:text-base max-sm:leading-5">
+              Para garantir sua vaga e otimizar sua entrada no dia da imersão,
+              precisamos de algumas informações rápidas.
+            </p>
+          </div>
+        </section>
+        
+        <IdentityValidationForm />
       </div>
-    </div>
+      
+      <Footer />
+    </main>
   );
 };
 
