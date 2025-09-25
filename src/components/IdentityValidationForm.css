@@ -1,0 +1,46 @@
+/* Identity Validation Form */
+.identity-form {
+  width: 100%;
+  max-width: 467px;
+  margin: 0 auto;
+}
+
+.identity-form__form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-xl);
+}
+
+.identity-form__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-lg);
+  padding: var(--spacing-xl);
+  width: 100%;
+}
+
+.btn--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .identity-form {
+    max-width: 100%;
+    padding: 0 var(--spacing-md);
+  }
+  
+  .identity-form__card {
+    padding: var(--spacing-lg);
+  }
+}
+
+@media (max-width: 480px) {
+  .identity-form__card {
+    padding: var(--spacing-md);
+  }
+}

@@ -1,4 +1,5 @@
 import React from "react";
+import './Checkbox.css';
 
 interface CheckboxProps {
   id: string;
@@ -14,18 +15,18 @@ export const Checkbox: React.FC<CheckboxProps> = ({
   children,
 }) => {
   return (
-    <div className="flex items-center gap-2 self-stretch relative">
-      <div className="w-6 h-6 relative">
+    <div className="checkbox">
+      <div className="checkbox__input-wrapper">
         <input
           type="checkbox"
           id={id}
           checked={checked}
           onChange={(e) => onChange(e.target.checked)}
-          className="w-6 h-6 shrink-0 border absolute rounded-[5px] transition border-solid border-[#A0A3A6] bg-[#101820] left-0 top-0 appearance-none checked:bg-[#D67C1C] checked:border-[#A0A3A6] cursor-pointer"
+          className="checkbox__input"
           aria-describedby={`${id}-label`}
         />
         {checked && (
-          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <div className="checkbox__check">
             <svg
               width="12"
               height="9"
@@ -35,7 +36,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({
             >
               <path
                 d="M1 4.5L4.5 8L11 1"
-                stroke="white"
+                stroke="currentColor"
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -47,11 +48,9 @@ export const Checkbox: React.FC<CheckboxProps> = ({
       <label
         id={`${id}-label`}
         htmlFor={id}
-        className="flex-[1_0_0] relative cursor-pointer"
+        className="checkbox__label"
       >
-        <div className="font-normal text-sm text-white leading-4 tracking-[0.014px] max-sm:text-xs max-sm:leading-[14px]">
-          {children}
-        </div>
+        {children}
       </label>
     </div>
   );
