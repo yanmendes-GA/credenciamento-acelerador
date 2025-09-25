@@ -1,6 +1,7 @@
 import React from "react";
 import { IdentityValidationForm } from "@/components/IdentityValidationForm";
 import { Footer } from "@/components/Footer";
+import gaLogo from '@/assets/ga-logo.png';
 
 const Index = () => {
   return (
@@ -14,9 +15,9 @@ const Index = () => {
       <div className="flex w-[820px] flex-col items-start gap-20 absolute h-[822px] z-[2] left-[250px] top-[93px] max-md:w-[90%] max-md:gap-[60px] max-md:left-[5%] max-md:top-[60px] max-sm:gap-10 max-sm:top-10">
         <header>
           <img
-            src="https://api.builder.io/api/v1/image/assets/TEMP/68a45f46c5202a981b756b66ce940a5163e3c19d?width=920"
+            src={gaLogo}
             alt="Acelerador Empresarial Logo"
-            className="w-[460px] h-12 aspect-[115/12] relative max-md:w-[350px] max-md:h-9 max-sm:w-[280px] max-sm:h-[29px]"
+            className="w-[460px] max-md:w-[350px] max-sm:w-[280px]"
           />
         </header>
 
