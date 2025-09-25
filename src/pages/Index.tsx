@@ -5,7 +5,7 @@ import gaLogo from '@/assets/ga-logo.png';
 
 const Index = () => {
   return (
-    <main className="w-full h-screen relative">
+    <main className="w-full h-screen relative bg-black">
       <img
         src="https://api.builder.io/api/v1/image/assets/TEMP/de1865c83b6433d38fafbd4d8de2d02009fffd74?width=3840"
         alt="Background"

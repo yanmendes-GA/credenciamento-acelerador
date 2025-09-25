@@ -20,11 +20,13 @@ export const FormInput: React.FC<FormInputProps> = ({
   id,
 }) => {
   return (
-    <div className="form-group">
-      <label htmlFor={id} className="form-group__label">
-        {label}
+    <div className="flex flex-col items-start gap-2 self-stretch relative">
+      <label htmlFor={id} className="self-stretch relative">
+        <div className="font-bold text-base text-white leading-6 tracking-[0.016px] max-sm:text-sm">
+          {label}
+        </div>
       </label>
-      <div className="form-group__input">
+      <div className="flex h-[50px] flex-col justify-center items-start self-stretch relative bg-[#6F7479] px-2 py-0 rounded-lg">
         <input
           id={id}
           type={type}
@@ -32,7 +34,7 @@ export const FormInput: React.FC<FormInputProps> = ({
           onChange={(e) => onChange(e.target.value)}
           placeholder={placeholder}
           maxLength={maxLength}
-          className="input"
+          className="w-full bg-transparent border-none outline-none font-normal text-sm text-white leading-6 tracking-[0.014px] placeholder:text-[#A0A3A6] placeholder:italic max-sm:text-xs"
         />
       </div>
     </div>
