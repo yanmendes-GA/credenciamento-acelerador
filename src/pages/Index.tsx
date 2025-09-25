@@ -26,12 +26,12 @@ const Index = () => {
       />
       {/* Mobile hero removido, agora é background do container do logo */}
 
-      <header className="w-full flex justify-center md:pt-16 md:px-0 relative z-10">
+      <header className="w-full md:max-w-[1420px] md:mx-auto flex md:justify-start justify-center md:pt-16 md:pl-24 md:px-0 relative z-10">
         {/* Desktop: logo normal */}
         <img
           src={gaLogo}
           alt="Acelerador Empresarial Logo"
-          className="hidden md:block w-[460px]"
+          className="hidden md:block w-[340px]"
         />
         {/* Mobile: logo dentro de container com heroMobileBg como fundo, alinhado à esquerda */}
         <div
@@ -49,7 +49,7 @@ const Index = () => {
           />
         </div>
       </header>
-      <div className="flex flex-col items-start gap-10 w-full max-w-[820px] mx-auto pt-10 pb-16 px-4 md:px-0 flex-1 relative z-10">
+      <div className="flex flex-col md:flex-column md:items-center items-start gap-10 w-full mx-auto pt-10 pb-16 px-4 md:px-0 flex-1 relative z-10 md:max-w-[1420px]">
         <div className="w-full md:hidden">
           <Stepper
             steps={[
@@ -61,22 +61,24 @@ const Index = () => {
           />
         </div>
 
-        <section className="flex flex-col items-start gap-5 w-full">
-          <div className="w-full">
-            <h1 className="font-bold text-[64px] text-white leading-[56px] tracking-[0.064px] max-md:text-5xl max-md:leading-[44px] max-sm:text-4xl max-sm:leading-8">
+        <section className="flex flex-col items-start gap-5 w-full md:pl-24 md:justify-center md:h-full md:gap-8">
+          <div className="w-full md:w-[820px]">
+            <h1 className="font-bold text-[56px] md:text-[64px] text-white leading-[56px] tracking-[0.064px] max-md:text-5xl max-md:leading-[44px] max-sm:text-4xl max-sm:leading-8">
               O primeiro passo para o seu legado
             </h1>
           </div>
-          <div className="w-full max-w-[586px]">
-            <p className="font-normal text-xl text-white leading-6 tracking-[0.02px] max-md:text-lg max-md:leading-[22px] max-sm:text-base max-sm:leading-5">
+          <div className="w-full max-w-[590px] md:max-w-[700px]">
+            <p className="font-normal text-xl md:text-2xl text-white leading-6 tracking-[0.02px] max-md:text-lg max-md:leading-[22px] max-sm:text-base max-sm:leading-5">
               Para garantir sua vaga e otimizar sua entrada no dia da imersão,
               precisamos de algumas informações rápidas.
             </p>
           </div>
+          <div className="w-full md:mt-8">
+            <IdentityValidationForm />
+          </div>
         </section>
-
-        <IdentityValidationForm />
-
+        {/* Espaço para o formulário ocupar a esquerda no desktop */}
+        <div className="hidden md:flex flex-1" />
         <Footer />
       </div>
     </main>
