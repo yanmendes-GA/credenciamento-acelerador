@@ -1,7 +1,8 @@
 import React from "react";
 import { IdentityValidationForm } from "@/components/IdentityValidationForm";
 import { Footer } from "@/components/Footer";
-import gaLogo from '@/assets/ga-logo.png';
+import gaLogo from "@/assets/ga-logo.png";
+import { Stepper } from "@/components/Stepper/Stepper";
 
 const Index = () => {
   return (
@@ -20,6 +21,18 @@ const Index = () => {
             className="w-[460px] max-md:w-[350px] max-sm:w-[280px]"
           />
         </header>
+
+        {/* Stepper só no mobile */}
+        <div className="w-full md:hidden">
+          <Stepper
+            steps={[
+              { id: "1", title: "01" },
+              { id: "2", title: "02" },
+              { id: "3", title: "03" },
+            ]}
+            currentStep={0}
+          />
+        </div>
 
         <section className="flex flex-col items-start gap-5 self-stretch relative">
           <div className="self-stretch relative">
