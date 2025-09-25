@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import './IdentityValidationForm.css';
 import { ToggleSwitch } from "./ToggleSwitch";
 import { FormInput } from "./FormInput";
 import { Checkbox } from "./Checkbox";
@@ -7,9 +8,7 @@ import { formatDate } from "@/utils/format-date";
 import { isValidCpf } from "@/utils/isValid-cpf";
 
 export const IdentityValidationForm: React.FC = () => {
-  const [documentType, setDocumentType] = useState<
-    "brasileiro" | "estrangeiro"
-  >("brasileiro");
+  const [documentType, setDocumentType] = useState<"brasileiro" | "estrangeiro">("brasileiro");
   const [cpf, setCpf] = useState("");
   const [birthDate, setBirthDate] = useState("");
   const [termsAccepted, setTermsAccepted] = useState(false);
@@ -46,8 +45,7 @@ export const IdentityValidationForm: React.FC = () => {
     });
   };
 
-  const isFormValid =
-    cpf && birthDate && termsAccepted && imageRightsAccepted && isValidCPFValue;
+  const isFormValid = cpf && birthDate && termsAccepted && imageRightsAccepted && isValidCPFValue;
 
   useEffect(() => {
     if (documentType === "brasileiro") {
@@ -58,30 +56,20 @@ export const IdentityValidationForm: React.FC = () => {
   }, [cpf, documentType]);
 
   return (
-    <section className="flex w-[467px] h-[434px] flex-col items-center gap-10 relative max-md:w-full">
-      <form
-        onSubmit={handleSubmit}
-        className="flex flex-col items-center gap-5 flex-[1_0_0] self-stretch relative"
-      >
-        <div className="flex flex-col justify-between items-center flex-[1_0_0] self-stretch border relative gap-5 bg-[#3F464C] p-5 rounded-lg border-solid border-[#6F7479] max-md:w-full max-sm:p-4">
-          <ToggleSwitch
-            selectedOption={documentType}
-            onToggle={setDocumentType}
-          />
-
+    <section className="identity-form">
+      <form onSubmit={handleSubmit} className="identity-form__form">
+        <div className="card identity-form__card">
+          <ToggleSwitch selectedOption={documentType} onToggle={setDocumentType} />
+          
           <FormInput
             id="cpf"
             label={documentType === "brasileiro" ? "CPF" : "Documento"}
-            placeholder={
-              documentType === "brasileiro"
-                ? "XXX.XXX.XXX-XX"
-                : "Número do documento"
-            }
+            placeholder={documentType === "brasileiro" ? "XXX.XXX.XXX-XX" : "Número do documento"}
             value={cpf}
             maxLength={documentType === "brasileiro" ? 14 : 20}
             onChange={handleCpfChange}
           />
-
+          
           <FormInput
             id="birthDate"
             label="Data de nascimento"
@@ -90,38 +78,21 @@ export const IdentityValidationForm: React.FC = () => {
             maxLength={10}
             onChange={handleDateChange}
           />
-
+          
           <button
             type="submit"
             disabled={!isFormValid}
-            className={`flex w-[313px] justify-center items-center gap-2.5 relative cursor-pointer px-4 py-4 rounded-lg max-md:w-full max-md:max-w-[313px] transition-opacity ${
-              isFormValid
-                ? "bg-gradient-to-t from-[#D67C1C] to-[#DE9649] hover:opacity-90"
-                : "bg-[#6F7479] cursor-not-allowed opacity-50"
-            }`}
+            className={`btn btn--primary btn--full btn--lg ${!isFormValid ? 'btn--disabled' : ''}`}
           >
-            <div className="relative">
-              <div className="font-bold text-xl text-white leading-6 tracking-[0.02px] max-sm:text-lg">
-                Validar minha identidade
-              </div>
-            </div>
+            Validar minha identidade
           </button>
-
-          <Checkbox
-            id="terms"
-            checked={termsAccepted}
-            onChange={setTermsAccepted}
-          >
+          
+          <Checkbox id="terms" checked={termsAccepted} onChange={setTermsAccepted}>
             Li e aceito os Termos de Uso e a Política de Privacidade.
           </Checkbox>
-
-          <Checkbox
-            id="imageRights"
-            checked={imageRightsAccepted}
-            onChange={setImageRightsAccepted}
-          >
-            Autorizo o uso da minha imagem para fins institucionais e de
-            divulgação.
+          
+          <Checkbox id="imageRights" checked={imageRightsAccepted} onChange={setImageRightsAccepted}>
+            Autorizo o uso da minha imagem para fins institucionais e de divulgação.
           </Checkbox>
         </div>
       </form>
