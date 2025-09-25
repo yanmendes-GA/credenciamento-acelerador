@@ -1,10 +1,9 @@
 import React from "react";
-import { IdentityValidationForm } from "@/components/IdentityValidationForm";
 import { Footer } from "@/components/Footer";
 import gaLogo from '@/assets/ga-logo.png';
 import { Link } from "react-router-dom";
 
-const Index = () => {
+const About = () => {
   return (
     <main className="layout layout--fullscreen">
       <img
@@ -17,8 +16,8 @@ const Index = () => {
         <nav className="nav">
           <div className="container">
             <div className="nav__content">
-              <Link to="/" className="nav__link nav__link--active">Início</Link>
-              <Link to="/about" className="nav__link">Sobre</Link>
+              <Link to="/" className="nav__link">Início</Link>
+              <Link to="/about" className="nav__link nav__link--active">Sobre</Link>
               <Link to="/services" className="nav__link">Serviços</Link>
               <Link to="/contact" className="nav__link">Contato</Link>
               <Link to="/login" className="nav__link nav__link--admin">Área Administrativa</Link>
@@ -39,18 +38,22 @@ const Index = () => {
             <section className="hero__content">
               <div className="hero__text">
                 <h1 className="hero__title">
-                  O primeiro passo para o seu legado
+                  Sobre o Acelerador Empresarial
                 </h1>
               </div>
               <div className="hero__description">
                 <p className="hero__subtitle">
-                  Para garantir sua vaga e otimizar sua entrada no dia da imersão,
-                  precisamos de algumas informações rápidas.
+                  Somos especialistas em transformar negócios através de metodologias 
+                  comprovadas e estratégias personalizadas para cada empresa.
+                </p>
+                <p className="hero__text-content">
+                  Com mais de 10 anos de experiência no mercado, nosso time de consultores 
+                  já ajudou centenas de empresas a alcançarem seus objetivos de crescimento 
+                  e expansão. Oferecemos soluções completas em gestão, marketing digital, 
+                  vendas e desenvolvimento organizacional.
                 </p>
               </div>
             </section>
-
-            <IdentityValidationForm />
           </div>
         </div>
 
@@ -60,4 +63,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default About;

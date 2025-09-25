@@ -1,10 +1,9 @@
 import React from "react";
-import { IdentityValidationForm } from "@/components/IdentityValidationForm";
 import { Footer } from "@/components/Footer";
 import gaLogo from '@/assets/ga-logo.png';
 import { Link } from "react-router-dom";
 
-const Index = () => {
+const Contact = () => {
   return (
     <main className="layout layout--fullscreen">
       <img
@@ -17,10 +16,10 @@ const Index = () => {
         <nav className="nav">
           <div className="container">
             <div className="nav__content">
-              <Link to="/" className="nav__link nav__link--active">Início</Link>
+              <Link to="/" className="nav__link">Início</Link>
               <Link to="/about" className="nav__link">Sobre</Link>
               <Link to="/services" className="nav__link">Serviços</Link>
-              <Link to="/contact" className="nav__link">Contato</Link>
+              <Link to="/contact" className="nav__link nav__link--active">Contato</Link>
               <Link to="/login" className="nav__link nav__link--admin">Área Administrativa</Link>
             </div>
           </div>
@@ -39,18 +38,40 @@ const Index = () => {
             <section className="hero__content">
               <div className="hero__text">
                 <h1 className="hero__title">
-                  O primeiro passo para o seu legado
+                  Entre em Contato
                 </h1>
               </div>
               <div className="hero__description">
                 <p className="hero__subtitle">
-                  Para garantir sua vaga e otimizar sua entrada no dia da imersão,
-                  precisamos de algumas informações rápidas.
+                  Estamos prontos para acelerar o crescimento do seu negócio. 
+                  Fale conosco e descubra como podemos ajudar.
                 </p>
+                
+                <div className="contact">
+                  <div className="contact__item">
+                    <h3 className="contact__title">Email</h3>
+                    <p className="contact__info">
+                      contato@aceleradorempresarial.com.br
+                    </p>
+                  </div>
+                  
+                  <div className="contact__item">
+                    <h3 className="contact__title">Telefone</h3>
+                    <p className="contact__info">
+                      (11) 99999-9999
+                    </p>
+                  </div>
+                  
+                  <div className="contact__item">
+                    <h3 className="contact__title">Endereço</h3>
+                    <p className="contact__info">
+                      São Paulo - SP<br />
+                      CNPJ: 25.048.157/0001-18
+                    </p>
+                  </div>
+                </div>
               </div>
             </section>
-
-            <IdentityValidationForm />
           </div>
         </div>
 
@@ -60,4 +81,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default Contact;
