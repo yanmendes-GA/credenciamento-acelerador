@@ -39,18 +39,49 @@ export const Stepper: React.FC<StepperProps> = ({
       {steps.map((step, idx) => (
         <React.Fragment key={step.id}>
           <div
-            data-property-1={currentStep === idx ? "current" : "disabled"}
-            className={`rounded-[50px] outline outline-1 outline-offset-[-1px] ${currentStep === idx ? "outline-amber-600" : "outline-neutral-400"} inline-flex flex-col justify-center items-center`}
+            className={`rounded-full w-14 h-14 flex flex-col justify-center items-center border-2 
+                ${currentStep === idx ? "border-amber-600 bg-transparent" : ""}
+                ${idx < currentStep ? "bg-amber-600 border-transparent" : ""}
+                ${idx > currentStep ? "border-[#A0A3A6] bg-transparent" : ""}
+              `}
+            style={{
+              borderColor:
+                currentStep === idx
+                  ? "#D17A20"
+                  : idx > currentStep
+                    ? "#A0A3A6"
+                    : "transparent",
+              backgroundColor: idx < currentStep ? "#D17A20" : "transparent",
+            }}
           >
-            <div
-              className={`w-12 h-12 text-center flex justify-center items-center text-2xl font-bold font-['Montserrat'] tracking-tight ${currentStep === idx ? "text-amber-600" : "text-neutral-400"}`}
+            <span
+              className={`text-2xl font-bold font-['Montserrat'] tracking-tight 
+                  ${currentStep === idx ? "text-amber-600" : ""}
+                  ${idx < currentStep ? "text-white" : ""}
+                  ${idx > currentStep ? "text-[#A0A3A6]" : ""}
+                `}
             >
               {String(idx + 1).padStart(2, "0")}
-            </div>
+            </span>
           </div>
           {/* Linha entre os círculos, exceto o último */}
           {idx < steps.length - 1 && (
-            <div className="flex-1 h-0 outline outline-1 outline-offset-[-0.5px] outline-neutral-400" />
+            <div
+              className={`flex-1 h-0 border-t-2
+                ${idx < currentStep - 1 ? "border-amber-600" : ""}
+                ${idx === currentStep - 1 ? "border-amber-600" : ""}
+                ${idx === currentStep ? "border-[#A0A3A6]" : ""}
+                ${idx > currentStep ? "border-[#A0A3A6]" : ""}
+              `}
+              style={{
+                borderColor:
+                  idx < currentStep
+                    ? "#D17A20"
+                    : idx >= currentStep
+                      ? "#A0A3A6"
+                      : "#A0A3A6",
+              }}
+            />
           )}
         </React.Fragment>
       ))}
