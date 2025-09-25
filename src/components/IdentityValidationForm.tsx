@@ -5,8 +5,10 @@ import { Checkbox } from "./Checkbox";
 import { formatCpf } from "@/utils/format-cpf";
 import { formatDate } from "@/utils/format-date";
 import { isValidCpf } from "@/utils/isValid-cpf";
+import { useNavigate } from "react-router-dom";
 
 export const IdentityValidationForm: React.FC = () => {
+  const navigate = useNavigate();
   const [documentType, setDocumentType] = useState<
     "brasileiro" | "estrangeiro"
   >("brasileiro");
@@ -37,6 +39,7 @@ export const IdentityValidationForm: React.FC = () => {
       alert("Por favor, aceite os Termos de Uso e a Política de Privacidade.");
       return;
     }
+    navigate("/step02");
     console.log("Form submitted:", {
       documentType,
       cpf,
@@ -58,12 +61,12 @@ export const IdentityValidationForm: React.FC = () => {
   }, [cpf, documentType]);
 
   return (
-    <section className="flex w-[467px] h-[434px] flex-col items-center gap-10 relative max-md:w-full">
+    <section className="flex w-[467px] flex-col items-center gap-10 relative max-md:w-full max-sm:w-full max-sm:px-2">
       <form
         onSubmit={handleSubmit}
-        className="flex flex-col items-center gap-5 flex-[1_0_0] self-stretch relative"
+        className="flex flex-col items-center gap-5 flex-1 self-stretch relative w-full"
       >
-        <div className="flex flex-col justify-between items-center flex-[1_0_0] self-stretch border relative gap-5 bg-[#3F464C] p-5 rounded-lg border-solid border-[#6F7479] max-md:w-full max-sm:p-4">
+        <div className="flex flex-col justify-between items-center flex-1 self-stretch border relative gap-5 bg-[#3F464C] p-5 rounded-lg border-solid border-[#6F7479] w-full max-md:w-full max-sm:p-3 max-sm:gap-3">
           <ToggleSwitch
             selectedOption={documentType}
             onToggle={setDocumentType}
@@ -94,13 +97,13 @@ export const IdentityValidationForm: React.FC = () => {
           <button
             type="submit"
             disabled={!isFormValid}
-            className={`flex w-[313px] justify-center items-center gap-2.5 relative cursor-pointer px-4 py-4 rounded-lg max-md:w-full max-md:max-w-[313px] transition-opacity ${
+            className={`flex w-[313px] justify-center items-center gap-2.5 relative cursor-pointer px-4 py-4 rounded-lg transition-opacity max-md:w-full max-md:max-w-[313px] max-sm:w-full max-sm:max-w-full ${
               isFormValid
                 ? "bg-gradient-to-t from-[#D67C1C] to-[#DE9649] hover:opacity-90"
                 : "bg-[#6F7479] cursor-not-allowed opacity-50"
             }`}
           >
-            <div className="relative">
+            <div className="relative w-full text-center">
               <div className="font-bold text-xl text-white leading-6 tracking-[0.02px] max-sm:text-lg">
                 Validar minha identidade
               </div>
