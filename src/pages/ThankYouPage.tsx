@@ -26,12 +26,12 @@ const ThankYouPage = () => {
         style={{ minHeight: "100dvh" }}
       />
 
-      <header className="w-full flex justify-center md:pt-16 md:px-0 relative z-10">
+      <header className="w-full md:max-w-[1420px] md:mx-auto flex md:justify-start justify-center md:pt-16 md:px-0 relative z-10">
         {/* Desktop: logo normal */}
         <img
           src={gaLogo}
           alt="Grupo Acelerador Logo"
-          className="hidden md:block w-[460px]"
+          className="hidden md:block w-[340px]"
         />
         {/* Mobile: logo dentro de container com heroMobileBg como fundo, alinhado à esquerda */}
         <div
@@ -49,7 +49,7 @@ const ThankYouPage = () => {
           />
         </div>
       </header>
-      <div className="flex flex-col items-start gap-10 w-full max-w-[820px] mx-auto pt-10 pb-16 px-4 md:px-0 flex-1 relative z-10">
+      <div className="flex flex-col items-start gap-10 w-full max-w-[820px] mx-auto pt-10 pb-16 px-4 md:px-0 flex-1 relative z-10 md:max-w-[1420px]">
         <section className="flex flex-col items-start gap-5 w-full">
           <div className="w-full">
             <h1 className="font-bold text-[64px] text-white leading-[56px] tracking-[0.064px] max-md:text-5xl max-md:leading-[44px] max-sm:text-4xl max-sm:leading-8">
@@ -71,7 +71,7 @@ const ThankYouPage = () => {
           </div>
         </section>
 
-        <hr className="w-full border-t border-[#6F7479]" />
+        <hr className="w-full md:max-w-[800px] border-t border-[#6F7479]" />
 
         <div className="w-full">
           <h2 className="text-white text-xl font-bold mb-3 w-[450px]">

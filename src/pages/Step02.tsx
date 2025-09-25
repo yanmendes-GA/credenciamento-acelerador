@@ -28,12 +28,12 @@ const Step02 = () => {
         style={{ minHeight: "100dvh" }}
       />
 
-      <header className="w-full flex justify-center md:pt-16 md:px-0 relative z-10">
+      <header className="w-full md:max-w-[1420px] md:mx-auto flex md:justify-start justify-center md:pt-16 md:px-0 relative z-10">
         {/* Desktop: logo normal */}
         <img
           src={gaLogo}
           alt="Acelerador Empresarial Logo"
-          className="hidden md:block w-[460px]"
+          className="hidden md:block w-[340px]"
         />
         {/* Mobile: logo dentro de container com heroMobileBg como fundo, alinhado à esquerda */}
         <div
@@ -51,7 +51,7 @@ const Step02 = () => {
           />
         </div>
       </header>
-      <div className="flex flex-col items-start gap-10 w-full max-w-[820px] mx-auto pt-10 pb-16 px-4 md:px-0 flex-1 relative z-10">
+      <div className="flex flex-col items-start gap-10 w-full max-w-[820px] mx-auto pt-10 pb-16 px-4 md:px-0 flex-1 relative z-10 md:max-w-[1420px]">
         <div className="w-full md:hidden">
           <Stepper
             steps={[
@@ -63,19 +63,20 @@ const Step02 = () => {
           />
         </div>
         <section className="flex flex-col items-start gap-5 w-full">
-          <div className="w-full">
+          <div className="w-full md:w-[820px]">
             <h1 className="font-bold text-[64px] text-white leading-[56px] tracking-[0.064px] max-md:text-5xl max-md:leading-[44px] max-sm:text-4xl max-sm:leading-8">
               Vamos acelerar seu acesso
             </h1>
           </div>
-          <div className="w-[586px] relative max-md:w-full">
+          <div className="max-w-[590px] md:max-w-[700px] relative max-md:w-full">
             <p className="font-normal text-xl text-white leading-6 tracking-[0.02px] max-md:text-lg max-md:leading-[22px] max-sm:text-base max-sm:leading-5">
               Envie um documento com foto para validarmos seus dados e deixar
               tudo pronto para a sua entrada na imersão.
             </p>
           </div>
         </section>
-        <hr className="w-full border-t border-[#6F7479]" />
+
+        <hr className="w-full md:max-w-[800px] border-t border-[#6F7479]" />
 
         <div>
           <h2 className="text-white text-xl font-bold mb-3">

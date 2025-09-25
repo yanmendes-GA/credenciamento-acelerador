@@ -28,12 +28,12 @@ const Step03 = () => {
         style={{ minHeight: "100dvh" }}
       />
 
-      <header className="w-full flex justify-center md:pt-16 md:px-0 relative z-10">
+      <header className="w-full md:max-w-[1420px] md:mx-auto flex md:justify-start justify-center md:pt-16 md:px-0 relative z-10">
         {/* Desktop: logo normal */}
         <img
           src={gaLogo}
           alt="Grupo Acelerador Logo"
-          className="hidden md:block w-[460px]"
+          className="hidden md:block w-[340px]"
         />
         {/* Mobile: logo dentro de container com heroMobileBg como fundo, alinhado à esquerda */}
         <div
@@ -51,7 +51,7 @@ const Step03 = () => {
           />
         </div>
       </header>
-      <div className="flex flex-col items-start gap-10 w-full max-w-[820px] mx-auto pt-10 pb-16 px-4 md:px-0 flex-1 relative z-10">
+      <div className="flex flex-col items-start gap-10 w-full max-w-[820px] mx-auto pt-10 pb-16 px-4 md:px-0 flex-1 relative z-10 md:max-w-[1420px]">
         <div className="w-full md:hidden">
           <Stepper
             steps={[
@@ -79,7 +79,7 @@ const Step03 = () => {
           </div>
         </section>
 
-        <hr className="w-full border-t border-[#6F7479]" />
+        <hr className="w-full md:max-w-[800px] border-t border-[#6F7479]" />
 
         <div>
           <h2 className="text-white text-xl font-bold mb-3">
