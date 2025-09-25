@@ -31,25 +31,26 @@ export const Stepper: React.FC<StepperProps> = ({
     }
   };
 
-  // Mobile: apenas círculos numerados, sem títulos/descrições
   return (
-    <div className="flex items-center justify-center w-full mb-6 md:hidden">
+    <div
+      className="self-stretch p-2.5 inline-flex justify-between items-center w-full"
+      style={{ background: "none" }}
+    >
       {steps.map((step, idx) => (
         <React.Fragment key={step.id}>
-          <div className="flex flex-col items-center">
+          <div
+            data-property-1={currentStep === idx ? "current" : "disabled"}
+            className={`rounded-[50px] outline outline-1 outline-offset-[-1px] ${currentStep === idx ? "outline-amber-600" : "outline-neutral-400"} inline-flex flex-col justify-center items-center`}
+          >
             <div
-              className={`w-10 h-10 flex items-center justify-center rounded-full border-2 text-base font-bold mb-1 transition-all
-                ${currentStep === idx ? "border-[#F9A826] text-[#F9A826] bg-[#23272A] shadow-[0_0_8px_#F9A826]" : "border-[#6F7479] text-[#6F7479] bg-[#23272A]"}`}
+              className={`w-12 h-12 text-center flex justify-center items-center text-2xl font-bold font-['Montserrat'] tracking-tight ${currentStep === idx ? "text-amber-600" : "text-neutral-400"}`}
             >
               {String(idx + 1).padStart(2, "0")}
             </div>
           </div>
           {/* Linha entre os círculos, exceto o último */}
           {idx < steps.length - 1 && (
-            <div
-              className="flex-1 h-0.5 bg-gradient-to-r from-[#F9A826] via-[#6F7479] to-[#6F7479] mx-1"
-              style={{ minWidth: 32 }}
-            />
+            <div className="flex-1 h-0 outline outline-1 outline-offset-[-0.5px] outline-neutral-400" />
           )}
         </React.Fragment>
       ))}

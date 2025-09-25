@@ -9,38 +9,48 @@ import bgMobile from "@/assets/bg-mobile.png";
 
 const Index = () => {
   return (
-    <main className="w-full h-screen relative bg-black">
+    <main className="w-full min-h-screen flex flex-col bg-black relative overflow-hidden">
       {/* Desktop background */}
       <img
         src={heroDesktopBg}
         alt="Background Desktop"
-        className="hidden md:block w-full object-cover absolute z-[1] left-0 top-0"
+        className="hidden md:block w-full h-full object-cover absolute inset-0 z-0"
       />
 
-      {/* Mobile background */}
-      <img
-        src={heroMobileBg}
-        alt="Background Mobile"
-        className="block md:hidden w-full object-cover relative z-[1]"
-      />
-      {/* Mobile backgrounds */}
+      {/* Mobile background - fundo */}
       <img
         src={bgMobile}
         alt="BG Mobile"
-        className="block md:hidden w-full h-full object-cover fixed left-0 top-0 z-0"
+        className="block md:hidden w-full h-full object-cover absolute top-0 left-0 z-0"
         style={{ minHeight: "100dvh" }}
       />
+      {/* Mobile hero removido, agora é background do container do logo */}
 
-      <div className="flex w-[820px] flex-col items-start gap-20 absolute h-[822px] z-[2] left-[250px] top-[93px] max-md:w-[90%] max-md:gap-[60px] max-md:left-[5%] max-md:top-[60px] max-sm:gap-10 max-sm:top-10">
-        <header>
+      <header className="w-full flex justify-center md:pt-16 md:px-0 relative z-10">
+        {/* Desktop: logo normal */}
+        <img
+          src={gaLogo}
+          alt="Acelerador Empresarial Logo"
+          className="hidden md:block w-[460px]"
+        />
+        {/* Mobile: logo dentro de container com heroMobileBg como fundo, alinhado à esquerda */}
+        <div
+          className="md:hidden w-full flex items-center h-[120px]"
+          style={{
+            backgroundImage: `url(${heroMobileBg})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        >
           <img
             src={gaLogo}
             alt="Acelerador Empresarial Logo"
-            className="w-[460px] max-md:w-[350px] max-sm:w-[280px]"
+            className="w-[200px] ml-4"
           />
-        </header>
-
-        {/* <div className="w-full md:hidden">
+        </div>
+      </header>
+      <div className="flex flex-col items-start gap-10 w-full max-w-[820px] mx-auto pt-10 pb-16 px-4 md:px-0 flex-1 relative z-10">
+        <div className="w-full md:hidden">
           <Stepper
             steps={[
               { id: "1", title: "01" },
@@ -49,15 +59,15 @@ const Index = () => {
             ]}
             currentStep={0}
           />
-        </div> */}
+        </div>
 
-        <section className="flex flex-col items-start gap-5 self-stretch relative">
-          <div className="self-stretch relative">
+        <section className="flex flex-col items-start gap-5 w-full">
+          <div className="w-full">
             <h1 className="font-bold text-[64px] text-white leading-[56px] tracking-[0.064px] max-md:text-5xl max-md:leading-[44px] max-sm:text-4xl max-sm:leading-8">
               O primeiro passo para o seu legado
             </h1>
           </div>
-          <div className="w-[586px] relative max-md:w-full">
+          <div className="w-full max-w-[586px]">
             <p className="font-normal text-xl text-white leading-6 tracking-[0.02px] max-md:text-lg max-md:leading-[22px] max-sm:text-base max-sm:leading-5">
               Para garantir sua vaga e otimizar sua entrada no dia da imersão,
               precisamos de algumas informações rápidas.
@@ -66,9 +76,9 @@ const Index = () => {
         </section>
 
         <IdentityValidationForm />
-      </div>
 
-      <Footer />
+        <Footer />
+      </div>
     </main>
   );
 };
