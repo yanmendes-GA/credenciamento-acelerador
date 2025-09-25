@@ -1,6 +1,9 @@
 import { useNavigate } from "react-router-dom";
 import { Footer } from "@/components/Footer";
 import gaLogo from "@/assets/ga-logo.png";
+import heroDesktopBg from "@/assets/hero-desktop-bg-image.png";
+import heroMobileBg from "@/assets/hero-mobile-bg-image.png";
+import bgMobile from "@/assets/bg-mobile.png";
 import instagramIcon from "@/assets/instagram-icon.svg";
 
 const ThankYouPage = () => {
@@ -8,10 +11,23 @@ const ThankYouPage = () => {
 
   return (
     <main className="w-full h-screen flex items-center justify-center bg-black relative">
+      {/* Desktop background */}
       <img
-        src="https://api.builder.io/api/v1/image/assets/TEMP/de1865c83b6433d38fafbd4d8de2d02009fffd74?width=3840"
-        alt="Background"
-        className="w-full object-cover absolute z-[1] left-0 top-0"
+        src={heroDesktopBg}
+        alt="Background Desktop"
+        className="hidden md:block w-full object-cover absolute z-[1] left-0 top-0"
+      />
+      {/* Mobile backgrounds */}
+      <img
+        src={bgMobile}
+        alt="BG Mobile"
+        className="block md:hidden w-full h-full object-cover fixed left-0 top-0 z-0"
+        style={{ minHeight: "100dvh" }}
+      />
+      <img
+        src={heroMobileBg}
+        alt="Background Mobile"
+        className="block md:hidden w-full object-cover relative z-[1]"
       />
 
       <div className="flex w-[820px] flex-col items-start gap-10 absolute h-[822px] z-[2] left-[250px] top-[93px] max-md:w-[90%] max-md:gap-[60px] max-md:left-[5%] max-md:top-[60px] max-sm:gap-10 max-sm:top-10">

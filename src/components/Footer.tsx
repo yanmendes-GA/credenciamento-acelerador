@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 export const Footer: React.FC = () => {
   return (
@@ -10,7 +10,13 @@ export const Footer: React.FC = () => {
       </div>
       <div className="self-stretch text-center relative">
         <div className="font-normal text-sm text-white tracking-[0.014px] max-sm:text-xs">
-          <a href="#" className="hover:underline">Política de privacidade</a> | <a href="#" className="hover:underline">Termos de uso</a>
+          <a href="#" className="hover:underline">
+            Política de privacidade
+          </a>{" "}
+          |{" "}
+          <a href="#" className="hover:underline">
+            Termos de uso
+          </a>
         </div>
       </div>
       <div className="self-stretch text-center relative">

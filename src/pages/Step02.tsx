@@ -2,22 +2,38 @@ import React from "react";
 import { IdentityValidationForm } from "@/components/IdentityValidationForm";
 import { Footer } from "@/components/Footer";
 import gaLogo from "@/assets/ga-logo.png";
+import heroDesktopBg from "@/assets/hero-desktop-bg-image.png";
+import heroMobileBg from "@/assets/hero-mobile-bg-image.png";
+import bgMobile from "@/assets/bg-mobile.png";
 import listIcon from "@/assets/list-icon.svg";
 import clipIcon from "@/assets/clip-icon.svg";
 import { useNavigate } from "react-router-dom";
 
 const Step02 = () => {
-  const navigate = useNavigate();
-
   return (
-    <main className="w-full h-screen flex items-center justify-center bg-black relative">
+    <main className="w-full h-screen relative bg-black">
+      {/* Desktop background */}
       <img
-        src="https://api.builder.io/api/v1/image/assets/TEMP/de1865c83b6433d38fafbd4d8de2d02009fffd74?width=3840"
-        alt="Background"
-        className="w-full object-cover absolute z-[1] left-0 top-0"
+        src={heroDesktopBg}
+        alt="Background Desktop"
+        className="hidden md:block w-full object-cover absolute z-[1] left-0 top-0"
       />
 
-      <div className="flex w-[820px] flex-col items-start gap-10 absolute h-[822px] z-[2] left-[250px] top-[93px] max-md:w-[90%] max-md:gap-[60px] max-md:left-[5%] max-md:top-[60px] max-sm:gap-10 max-sm:top-10">
+      {/* Mobile background */}
+      <img
+        src={heroMobileBg}
+        alt="Background Mobile"
+        className="block md:hidden w-full object-cover relative z-[1]"
+      />
+      {/* Mobile backgrounds */}
+      <img
+        src={bgMobile}
+        alt="BG Mobile"
+        className="block md:hidden w-full h-full object-cover fixed left-0 top-0 z-0"
+        style={{ minHeight: "100dvh" }}
+      />
+
+      <div className="flex w-[820px] flex-col items-start gap-20 absolute h-[822px] z-[2] left-[250px] top-[93px] max-md:w-[90%] max-md:gap-[60px] max-md:left-[5%] max-md:top-[60px] max-sm:gap-10 max-sm:top-10">
         <header>
           <img
             src={gaLogo}
@@ -25,6 +41,18 @@ const Step02 = () => {
             className="w-[460px] max-md:w-[350px] max-sm:w-[280px]"
           />
         </header>
+
+        {/* Stepper só no mobile */}
+        {/* <div className="w-full md:hidden">
+          <Stepper
+            steps={[
+              { id: "1", title: "01" },
+              { id: "2", title: "02" },
+              { id: "3", title: "03" },
+            ]}
+            currentStep={1}
+          />
+        </div> */}
 
         <section className="flex flex-col items-start gap-5 self-stretch relative">
           <div className="self-stretch relative">
@@ -40,52 +68,7 @@ const Step02 = () => {
           </div>
         </section>
 
-        <hr className="w-full border-t border-[#6F7479]" />
-
-        <div>
-          <h2 className="text-white text-xl font-bold mb-3">
-            Como enviar seu documento corretamente?
-          </h2>
-          <ul className="text-white text-base font-normal flex flex-col gap-2 mb-6 w-[360px] max-xl:w-[360px]">
-            <li className="flex items-center gap-2">
-              <img
-                src={listIcon}
-                alt="Ícone de lista"
-                className="w-5 h-5 mt-1"
-              />
-              <span>
-                Utilize um documento oficial com foto (RG, CNH ou Passaporte).
-              </span>
-            </li>
-            <li className="flex items-center gap-2">
-              <img
-                src={listIcon}
-                alt="Ícone de lista"
-                className="w-5 h-5 mt-1"
-              />
-              <span>Certifique-se de que esteja legível e sem cortes.</span>
-            </li>
-            <li className="flex items-center gap-2">
-              <img
-                src={listIcon}
-                alt="Ícone de lista"
-                className="w-5 h-5 mt-1"
-              />
-              <span>Evite reflexos ou sombras ao fotografar/scanner.</span>
-            </li>
-          </ul>
-        </div>
-
-        <button
-          onClick={() => navigate("/step03")}
-          type="button"
-          className="flex justify-center items-center gap-2.5 relative cursor-pointer px-4 py-4 rounded-lg max-md:w-full max-md:max-w-[313px] transition-opacity bg-gradient-to-t from-[#D67C1C] to-[#DE9649] hover:opacity-90"
-        >
-          <img src={clipIcon}></img>
-          <span className="font-bold text-xl text-white leading-6 tracking-[0.02px] max-sm:text-lg">
-            Fazer upload do documento
-          </span>
-        </button>
+        <IdentityValidationForm />
       </div>
 
       <Footer />
