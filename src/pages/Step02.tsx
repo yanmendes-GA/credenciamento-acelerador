@@ -129,7 +129,7 @@ const Step02 = () => {
           type="button"
           className="flex justify-center items-center gap-2.5 relative cursor-pointer px-4 py-4 rounded-lg max-md:w-full  transition-opacity bg-gradient-to-t from-[#D67C1C] to-[#DE9649] hover:opacity-90"
           onClick={() => {
-            document.getElementById("file-upload")?.click()
+            navigate("/step03")
           }}
         >
           <img
@@ -144,6 +144,25 @@ const Step02 = () => {
             Fazer upload do documento
           </span>
         </button>
+        {/* <button
+          type="button"
+          className="flex justify-center items-center gap-2.5 relative cursor-pointer px-4 py-4 rounded-lg max-md:w-full  transition-opacity bg-gradient-to-t from-[#D67C1C] to-[#DE9649] hover:opacity-90"
+          onClick={() => {
+            document.getElementById("file-upload")?.click()
+          }}
+        >
+          <img
+            src={clipIcon}
+            alt="Ícone de clipe"
+            style={{
+              width: 30,
+              filter: "brightness(0) invert(1)",
+            }}
+          />
+          <span className="font-bold text-xl text-white leading-6 tracking-[0.02px] max-sm:text-lg">
+            Fazer upload do documento
+          </span>
+        </button> */}
         <Footer />
       </div>
     </main>
