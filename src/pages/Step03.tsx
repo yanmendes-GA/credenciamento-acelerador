@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import { useIsMobile } from "@/hooks/useIsMobile"
 import { sendFaceRecognitionFile } from "@/services/formService"
 import { Footer } from "@/components/Footer"
 import gaLogo from "@/assets/ga-logo.png"
@@ -12,6 +13,7 @@ import { useNavigate } from "react-router-dom"
 
 const Step03 = () => {
   const navigate = useNavigate()
+  const isMobile = useIsMobile()
   return (
     <main className="w-full min-h-screen flex flex-col bg-black relative overflow-hidden">
       {/* Desktop background */}
@@ -128,6 +130,7 @@ const Step03 = () => {
           id="face-upload"
           type="file"
           accept="image/*,application/pdf"
+          capture={isMobile ? "user" : undefined}
           style={{ display: "none" }}
           onChange={async (e) => {
             const file = e.target.files?.[0]
