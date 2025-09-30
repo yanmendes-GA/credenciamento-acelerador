@@ -37,7 +37,7 @@ export const FormInput: React.FC<FormInputProps> = ({
           onChange={(e) => onChange(e.target.value)}
           placeholder={placeholder}
           maxLength={maxLength}
-          className="w-full bg-transparent border-none outline-none font-normal text-sm text-white leading-6 tracking-[0.014px] placeholder:text-[#A0A3A6] placeholder:italic max-sm:text-md"
+          className="w-full bg-transparent border-none outline-none font-normal text-sm text-white leading-6 tracking-[0.014px] placeholder:text-[#A0A3A6] placeholder:italic max-sm:text-lg"
         />
       </div>
     </div>
