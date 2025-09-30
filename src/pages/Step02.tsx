@@ -1,16 +1,17 @@
-import React from "react";
-import { Footer } from "@/components/Footer";
-import gaLogo from "@/assets/ga-logo.png";
-import { Stepper } from "@/components/Stepper/Stepper";
-import heroDesktopBg from "@/assets/hero-desktop-bg-image.png";
-import heroMobileBg from "@/assets/hero-mobile-bg-image.png";
-import bgMobile from "@/assets/bg-mobile.png";
-import listIcon from "@/assets/list-icon.svg";
-import clipIcon from "@/assets/clip-icon.svg";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from "react"
+import { sendDocumentFile } from "@/services/formService"
+import { Footer } from "@/components/Footer"
+import gaLogo from "@/assets/ga-logo.png"
+import { Stepper } from "@/components/Stepper/Stepper"
+import heroDesktopBg from "@/assets/hero-desktop-bg-image.png"
+import heroMobileBg from "@/assets/hero-mobile-bg-image.png"
+import bgMobile from "@/assets/bg-mobile.png"
+import listIcon from "@/assets/list-icon.svg"
+import clipIcon from "@/assets/clip-icon.svg"
+import { useNavigate } from "react-router-dom"
 
 const Step02 = () => {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
   return (
     <main className="w-full min-h-screen flex flex-col bg-black relative overflow-hidden">
       {/* Desktop background */}
@@ -111,12 +112,34 @@ const Step02 = () => {
             </li>
           </ul>
         </div>
+        <input
+          id="file-upload"
+          type="file"
+          accept="image/*,application/pdf"
+          style={{ display: "none" }}
+          onChange={async (e) => {
+            const file = e.target.files?.[0]
+            if (file) {
+              await sendDocumentFile(file)
+              navigate("/step03")
+            }
+          }}
+        />
         <button
-          onClick={() => navigate("/step03")}
           type="button"
           className="flex justify-center items-center gap-2.5 relative cursor-pointer px-4 py-4 rounded-lg max-md:w-full  transition-opacity bg-gradient-to-t from-[#D67C1C] to-[#DE9649] hover:opacity-90"
+          onClick={() => {
+            document.getElementById("file-upload")?.click()
+          }}
         >
-          <img src={clipIcon}></img>
+          <img
+            src={clipIcon}
+            alt="Ícone de clipe"
+            style={{
+              width: 30,
+              filter: "brightness(0) invert(1)",
+            }}
+          />
           <span className="font-bold text-xl text-white leading-6 tracking-[0.02px] max-sm:text-lg">
             Fazer upload do documento
           </span>
@@ -124,7 +147,7 @@ const Step02 = () => {
         <Footer />
       </div>
     </main>
-  );
-};
+  )
+}
 
-export default Step02;
+export default Step02

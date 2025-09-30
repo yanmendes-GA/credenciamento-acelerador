@@ -1,64 +1,81 @@
-import React, { useEffect, useState } from "react";
-import { ToggleSwitch } from "./ToggleSwitch";
-import { FormInput } from "./FormInput";
-import { Checkbox } from "./Checkbox";
-import { formatCpf } from "@/utils/format-cpf";
-import { formatDate } from "@/utils/format-date";
-import { isValidCpf } from "@/utils/isValid-cpf";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react"
+import { ToggleSwitch } from "./ToggleSwitch"
+import { FormInput } from "./FormInput"
+import { Checkbox } from "./Checkbox"
+import { formatCpf } from "@/utils/format-cpf"
+import { formatDate } from "@/utils/format-date"
+import { isValidCpf } from "@/utils/isValid-cpf"
+import { useNavigate } from "react-router-dom"
 
-export const IdentityValidationForm: React.FC = () => {
-  const navigate = useNavigate();
+interface IdentityValidationFormProps {
+  onSubmit?: (data: {
+    document: string
+    birthday: string
+    isStranger: boolean
+  }) => void
+}
+
+export const IdentityValidationForm: React.FC<IdentityValidationFormProps> = ({
+  onSubmit,
+}) => {
+  const navigate = useNavigate()
   const [documentType, setDocumentType] = useState<
     "brasileiro" | "estrangeiro"
-  >("brasileiro");
-  const [cpf, setCpf] = useState("");
-  const [birthDate, setBirthDate] = useState("");
-  const [termsAccepted, setTermsAccepted] = useState(false);
-  const [imageRightsAccepted, setImageRightsAccepted] = useState(false);
-  const [isValidCPFValue, setIsValidCPFValue] = useState(true);
+  >("brasileiro")
+  const [cpf, setCpf] = useState("")
+  const [birthDate, setBirthDate] = useState("")
+  const [termsAccepted, setTermsAccepted] = useState(false)
+  const [imageRightsAccepted, setImageRightsAccepted] = useState(false)
+  const [isValidCPFValue, setIsValidCPFValue] = useState(true)
 
   const handleCpfChange = (value: string) => {
     if (documentType === "estrangeiro") {
-      setCpf(value);
-      setIsValidCPFValue(true);
-      return;
+      setCpf(value)
+      setIsValidCPFValue(true)
+      return
     }
 
-    setCpf(formatCpf(value));
-    setIsValidCPFValue(isValidCpf(value));
-  };
+    setCpf(formatCpf(value))
+    setIsValidCPFValue(isValidCpf(value))
+  }
 
   const handleDateChange = (value: string) => {
-    setBirthDate(formatDate(value));
-  };
+    setBirthDate(formatDate(value))
+  }
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+    e.preventDefault()
     if (!termsAccepted) {
-      alert("Por favor, aceite os Termos de Uso e a Política de Privacidade.");
-      return;
+      alert("Por favor, aceite os Termos de Uso e a Política de Privacidade.")
+      return
     }
-    navigate("/step02");
+    if (onSubmit) {
+      onSubmit({
+        document: cpf,
+        birthday: birthDate,
+        isStranger: documentType === "estrangeiro",
+      })
+    }
+    navigate("/step02")
     console.log("Form submitted:", {
       documentType,
       cpf,
       birthDate,
       termsAccepted,
       imageRightsAccepted,
-    });
-  };
+    })
+  }
 
   const isFormValid =
-    cpf && birthDate && termsAccepted && imageRightsAccepted && isValidCPFValue;
+    cpf && birthDate && termsAccepted && imageRightsAccepted && isValidCPFValue
 
   useEffect(() => {
     if (documentType === "brasileiro") {
-      setIsValidCPFValue(isValidCpf(cpf));
+      setIsValidCPFValue(isValidCpf(cpf))
     } else {
-      setIsValidCPFValue(true);
+      setIsValidCPFValue(true)
     }
-  }, [cpf, documentType]);
+  }, [cpf, documentType])
 
   return (
     <section className="flex w-[467px] flex-col items-center gap-10 relative max-md:w-full max-sm:w-full max-sm:px-2">
@@ -129,5 +146,5 @@ export const IdentityValidationForm: React.FC = () => {
         </div>
       </form>
     </section>
-  );
-};
+  )
+}

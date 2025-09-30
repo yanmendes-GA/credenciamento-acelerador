@@ -1,11 +1,12 @@
-import React from "react";
-import { IdentityValidationForm } from "@/components/IdentityValidationForm";
-import { Footer } from "@/components/Footer";
-import gaLogo from "@/assets/ga-logo.png";
-import { Stepper } from "@/components/Stepper/Stepper";
-import heroDesktopBg from "@/assets/hero-desktop-bg-image.png";
-import heroMobileBg from "@/assets/hero-mobile-bg-image.png";
-import bgMobile from "@/assets/bg-mobile.png";
+import { sendPersonalData } from "@/services/formService"
+import { IdentityValidationForm } from "@/components/IdentityValidationForm"
+import { Footer } from "@/components/Footer"
+import gaLogo from "@/assets/ga-logo.png"
+import { Stepper } from "@/components/Stepper/Stepper"
+import heroDesktopBg from "@/assets/hero-desktop-bg-image.png"
+import heroMobileBg from "@/assets/hero-mobile-bg-image.png"
+import bgMobile from "@/assets/bg-mobile.png"
+import { PersonalDataType } from "@/services/types"
 
 const Index = () => {
   return (
@@ -74,7 +75,11 @@ const Index = () => {
             </p>
           </div>
           <div className="w-full md:mt-8">
-            <IdentityValidationForm />
+            <IdentityValidationForm
+              onSubmit={(data: PersonalDataType) => {
+                sendPersonalData(data)
+              }}
+            />
           </div>
         </section>
         {/* Espaço para o formulário ocupar a esquerda no desktop */}
@@ -82,7 +87,7 @@ const Index = () => {
         <Footer />
       </div>
     </main>
-  );
-};
+  )
+}
 
-export default Index;
+export default Index

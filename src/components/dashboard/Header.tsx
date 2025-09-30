@@ -1,6 +1,7 @@
 import React from 'react';
 import { LogOut, User } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
+import gaLogo from '@/assets/logo horizontal primary light.png';
 
 export const Header: React.FC = () => {
   const { user, logout } = useAuth();
@@ -10,7 +11,7 @@ export const Header: React.FC = () => {
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-4">
           <img
-            src="https://api.builder.io/api/v1/image/assets/TEMP/68a45f46c5202a981b756b66ce940a5163e3c19d?width=920"
+            src={gaLogo}
             alt="Acelerador Empresarial"
             className="h-8 w-auto"
           />

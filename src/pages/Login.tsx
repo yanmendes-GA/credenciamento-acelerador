@@ -3,6 +3,7 @@ import { useAuth } from '@/contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import { Eye, EyeOff } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import gaLogo from '@/assets/logo horizontal primary light.png';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -48,7 +49,7 @@ const Login = () => {
           <div className="bg-[#3F464C] border border-[#6F7479] rounded-lg p-8">
             <div className="text-center mb-8">
               <img
-                src="https://api.builder.io/api/v1/image/assets/TEMP/68a45f46c5202a981b756b66ce940a5163e3c19d?width=920"
+                src={gaLogo}
                 alt="Acelerador Empresarial"
                 className="h-12 mx-auto mb-4"
               />
