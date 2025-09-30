@@ -18,8 +18,10 @@ const Step03 = () => {
   const handleFacialRecognition = async () => {
     try {
       await navigator.mediaDevices.getUserMedia({ video: true })
-      // No mobile, abrir input (câmera nativa). No desktop, abrir input normalmente.
-      document.getElementById("face-upload")?.click()
+      // Após permissão, abrir input (câmera nativa no mobile, seletor no desktop)
+      setTimeout(() => {
+        document.getElementById("face-upload")?.click()
+      }, 500)
     } catch (err) {
       alert("Permissão da câmera negada ou não disponível.")
     }
