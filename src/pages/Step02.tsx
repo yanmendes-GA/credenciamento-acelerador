@@ -112,7 +112,7 @@ const Step02 = () => {
             </li>
           </ul>
         </div>
-        <input
+        {/* <input
           id="file-upload"
           type="file"
           accept="image/*,application/pdf"
@@ -124,9 +124,8 @@ const Step02 = () => {
               navigate("/step03")
             }
           }}
-        />
+        /> */}
         <button
-          type="button"
           className="flex justify-center items-center gap-2.5 relative cursor-pointer px-4 py-4 rounded-lg max-md:w-full  transition-opacity bg-gradient-to-t from-[#D67C1C] to-[#DE9649] hover:opacity-90"
           onClick={() => {
             navigate("/step03")
