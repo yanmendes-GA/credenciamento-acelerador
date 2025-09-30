@@ -14,18 +14,6 @@ import { useNavigate } from "react-router-dom"
 const Step03 = () => {
   const navigate = useNavigate()
   const isMobile = useIsMobile()
-  // Handler para pedir permissão da câmera
-  const handleFacialRecognition = async () => {
-    try {
-      await navigator.mediaDevices.getUserMedia({ video: true })
-      // Após permissão, abrir input (câmera nativa no mobile, seletor no desktop)
-      setTimeout(() => {
-        document.getElementById("face-upload")?.click()
-      }, 500)
-    } catch (err) {
-      alert("Permissão da câmera negada ou não disponível.")
-    }
-  }
   return (
     <main className="w-full min-h-screen flex flex-col bg-black relative overflow-hidden">
       {/* Desktop background */}
@@ -155,7 +143,9 @@ const Step03 = () => {
         <button
           type="button"
           className="flex justify-center items-center gap-2.5 relative cursor-pointer px-4 py-4 rounded-lg max-md:w-full  transition-opacity bg-gradient-to-t from-[#D67C1C] to-[#DE9649] hover:opacity-90"
-          onClick={handleFacialRecognition}
+          onClick={() => {
+            document.getElementById("face-upload")?.click()
+          }}
         >
           <img
             src={cameraIcon}
