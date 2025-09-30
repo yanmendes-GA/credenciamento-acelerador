@@ -78,7 +78,7 @@ export const IdentityValidationForm: React.FC<IdentityValidationFormProps> = ({
   }, [cpf, documentType])
 
   return (
-    <section className="flex w-[467px] flex-col items-center gap-10 relative max-md:w-full max-sm:w-full max-sm:px-2">
+    <section className="flex w-[467px] flex-col items-center gap-10 relative max-md:w-full max-sm:w-full">
       <form
         onSubmit={handleSubmit}
         className="flex flex-col items-center gap-5 flex-1 self-stretch relative w-full"
