@@ -15,14 +15,14 @@ const Index = () => {
   return (
     <main className="w-full min-h-screen flex flex-col bg-black relative overflow-hidden">
       {/* Toast de exemplo */}
-      {showToast && (
+      {/* {showToast && (
         <div className="fixed top-8 right-0 z-50">
           <CustomToast
             message="Seu cadastro foi encontrado com sucesso!"
             onClose={() => setShowToast(false)}
           />
         </div>
-      )}
+      )} */}
       {/* Desktop background */}
       <img
         src={heroDesktopBg}
