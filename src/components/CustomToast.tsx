@@ -107,15 +107,20 @@ const CustomToast: React.FC<CustomToastProps> = ({
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      {/* Faixa lateral com bordas arredondadas e skew */}
+      {/* Faixa lateral animada crescendo de baixo para cima */}
       <div
-        className="absolute left-0 top-0 h-full overflow-hidden"
+        id="absolute-bar"
+        className={`absolute left-0 bottom-0 ${barGrow ? "h-full" : "h-0"} transition-all duration-500`}
         style={{
-          width: 20,
-          background: "#6F7479",
-          borderRadius: "8px 0px 8px 0px",
-          transform: "skew(-20deg)",
+          width: 30,
+          maxHeight: "100px",
+          background: "#63E05B",
+          borderRadius: "12px 0px 12px 0px",
+          transform: barSlide
+            ? "skew(-20deg) translateX(-30px)"
+            : "skew(-20deg)",
           zIndex: 1,
+          transition: "height 0.5s, transform 0.4s",
         }}
       >
         <div
@@ -129,13 +134,14 @@ const CustomToast: React.FC<CustomToastProps> = ({
           }}
         />
       </div>
-      {/* Toast box */}
+      {/* Toast box animado */}
       <div
-        className="flex-1 mr-[60px] rounded-b-xl rounded-tr-xl bg-[#3C4144] border flex items-center min-h-[60px]"
+        id="toast-box"
+        className={`mr-[60px] rounded-b-xl rounded-tr-xl bg-[#3C4144] border border-[#63E05B] flex items-center min-h-[60px] ${showToastBox ? "opacity-100" : "opacity-0"} transition-opacity duration-300`}
         style={{
           clipPath: "polygon(6% 0, 100% 0, 100% 100%, 0% 100%)",
-          borderColor: colors.border,
-          borderWidth: "1px",
+          width: toastBoxWidth ? "100%" : "0px",
+          transition: "width 0.4s, opacity 0.3s",
         }}
       >
         <span
@@ -145,7 +151,7 @@ const CustomToast: React.FC<CustomToastProps> = ({
           {message}
         </span>
       </div>
-      {/* Close button */}
+      {/* Close button animado */}
       <button
         onClick={() => {
           setShow(false)
@@ -158,6 +164,7 @@ const CustomToast: React.FC<CustomToastProps> = ({
           (e.currentTarget.style.background = colors.buttonHover)
         }
         onMouseOut={(e) => (e.currentTarget.style.background = colors.bar)}
+        id="close-button"
       >
         X
       </button>
