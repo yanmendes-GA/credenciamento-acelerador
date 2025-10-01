@@ -18,8 +18,9 @@ const Index = () => {
       {showToast && (
         <div className="fixed top-8 right-0 z-50">
           <CustomToast
-            message="Seu cadastro foi encontrado com sucesso!"
+            message="Este é um toast de informação de sucesso bem legal!"
             onClose={() => setShowToast(false)}
+            variant="success"
           />
         </div>
       )}
