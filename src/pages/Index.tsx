@@ -7,23 +7,20 @@ import heroDesktopBg from "@/assets/hero-desktop-bg-image.png"
 import heroMobileBg from "@/assets/hero-mobile-bg-image.png"
 import bgMobile from "@/assets/bg-mobile.png"
 import { PersonalDataType } from "@/services/types"
-import CustomToast from "@/components/CustomToast"
-import { useState } from "react"
+import { useEffect } from "react"
+import { useCustomToast } from "@/hooks/useCustomToast"
 
 const Index = () => {
-  const [showToast, setShowToast] = useState(true)
+  const showToast = useCustomToast()
+
+  useEffect(() => {
+    showToast({
+      message: "Este é um toast de informação de sucesso bem legal!",
+      variant: "warning",
+    })
+  }, [showToast])
   return (
     <main className="w-full min-h-screen flex flex-col bg-black relative overflow-hidden">
-      {/* Toast de exemplo */}
-      {showToast && (
-        <div className="fixed top-8 right-0 z-50">
-          <CustomToast
-            message="Este é um toast de informação de sucesso bem legal!"
-            onClose={() => setShowToast(false)}
-            variant="success"
-          />
-        </div>
-      )}
       {/* Desktop background */}
       <img
         src={heroDesktopBg}

@@ -54,12 +54,17 @@ const CustomToast: React.FC<CustomToastProps> = ({
   const timerRef = React.useRef<NodeJS.Timeout | null>(null)
 
   // SlideIn/SlideOut animation
+  // Garante animação de entrada: inicia com show=false e ativa show=true após mount
   useEffect(() => {
-    setShow(true)
+    setShow(false)
     setStartTime(Date.now())
     setRemaining(autoClose)
     setProgress(100)
     setPaused(false)
+    const timer = setTimeout(() => {
+      setShow(true)
+    }, 10)
+    return () => clearTimeout(timer)
   }, [autoClose])
 
   // Timer and progress bar logic
@@ -158,7 +163,7 @@ const CustomToast: React.FC<CustomToastProps> = ({
       </button>
       <style>{`
         .animate-toast-slide {
-          transition: transform 0.4s cubic-bezier(.4,1.3,.6,1), opacity 0.4s;
+          transition: transform 0.5s cubic-bezier(.4,1.3,.6,1), opacity 0.5s;
         }
         .toast-in {
           opacity: 1;
